@@ -1,0 +1,3 @@
+<%= line_chart @quotations.each do |quotation| %>
+  { name: quotation[:name], data: quotation[:data] }
+<% end %>
