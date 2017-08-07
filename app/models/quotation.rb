@@ -10,8 +10,10 @@ class Quotation < ApplicationRecord
   }
 
   def self.last_quotation_at
-    Quotation.select(:quotation_at)
-             .order(quotation_at: :desc)
-             .first.quotation_at
+    quotation = Quotation.select(:quotation_at).order(quotation_at: :desc).first
+
+    return nil unless quotation.present?
+
+    I18.l(quotation.try(:quotation_at), format: :short)
   end
 end

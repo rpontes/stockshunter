@@ -15,7 +15,7 @@
           <a class="navbar-brand" href="#">Stocks Hunter</a>
         </div>
         <p class="navbar-text navbar-right">
-          Última atualização: <%= I18n.l(Quotation.last_quotation_at, format: :short) %>
+          Última atualização: <%= Quotation.last_quotation_at %>
         </p>
       </div>
     </nav>
