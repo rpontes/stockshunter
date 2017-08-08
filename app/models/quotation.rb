@@ -14,6 +14,7 @@ class Quotation < ApplicationRecord
       .order(:quotation_at)
   }
 
+  # Method to get last quotation to show on Dashboard.
   def self.last_quotation_at
     quotation = Quotation.select(:quotation_at).order(quotation_at: :desc).first
 
@@ -22,6 +23,7 @@ class Quotation < ApplicationRecord
     I18n.l(quotation.quotation_at, format: :short)
   end
 
+  # Method to return quotation_at formated.
   def quotation_at_visual
     quotation_at.strftime('%d/%m/%y %H:00')
   end

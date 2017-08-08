@@ -1,0 +1,10 @@
+pt-BR:
+  layouts:
+    application:
+      last_quotation_at: "Última atualização: %{quotation_at}"
+  dashboard:
+    index:
+      quotation_at: Cotação dia
+      buy: Compra
+      sell: Venda
+      variation: Variação

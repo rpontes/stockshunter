@@ -7,6 +7,7 @@ class HgBrasilService
 
   base_uri 'https://api.hgbrasil.com/finance'
 
+  # Method to request quotations from HGBrasil.
   def quotations
     response = self.class.get('/quotations', OPTIONS)
 
@@ -17,6 +18,7 @@ class HgBrasilService
 
   private
 
+  # Get api reponse and parse to save on database.
   def parse_quotations(response)
     return [] unless response.key?('results')
 

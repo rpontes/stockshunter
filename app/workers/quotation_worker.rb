@@ -14,6 +14,7 @@ class QuotationWorker
     quotations.each do |key, value|
       currency = Currency.find_by(acronym: key)
 
+      # Discard when exists quotations at same hour
       next if currency.quotations.by_hour(@today).present?
 
       currency.quotations.create(buy: value[:buy].to_f,

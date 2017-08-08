@@ -32,5 +32,4 @@ document.addEventListener("turbolinks:load", function() {
   }
 
   startTimer();
-
 });
