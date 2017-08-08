@@ -8,4 +8,8 @@ describe QuotationWorker, type: :worker do
     expect(Currency.find_by(acronym: 'USD').quotations.count).to eq(1)
     expect(Currency.find_by(acronym: 'EUR').quotations.count).to eq(1)
   end
+
+  it 'not create when exists quotations hour' do
+    
+  end
 end

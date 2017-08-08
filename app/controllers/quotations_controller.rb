@@ -1,4 +1,4 @@
-# Controller to get all quotations from day
+# Controller to get all quotations from day and show in a dashboard.
 class QuotationsController < ApplicationController
   def index
     today = Time.zone.now
@@ -11,9 +11,12 @@ class QuotationsController < ApplicationController
       @quotations << {
         name: currency.name,
         acronym: currency.acronym,
+        labels: quotations.map(&:quotation_at_visual),
         data: parse_chart_data(quotations)
       }
     end
+
+    render json: { data: @quotations }, status: :ok
   end
 
   private
@@ -21,12 +24,10 @@ class QuotationsController < ApplicationController
   def parse_chart_data(quotations)
     return {} unless quotations.present?
 
-    data = {}
+    data = []
 
     quotations.each do |quotation|
-      at = quotation.quotation_at.strftime('%d/%m/%y - %H:%M')
-
-      data[at] = quotation.buy
+      data << quotation.buy.to_f
     end
 
     data

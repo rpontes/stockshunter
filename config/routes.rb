@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'quotations#index'
+  root 'dashboard#index'
 
-  resources :quotations, only: [:index]
+  resources :quotations, only: :index
 end

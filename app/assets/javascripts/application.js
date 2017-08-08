@@ -14,5 +14,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap/dist/js/bootstrap
-//= require Chart.bundle
-//= require chartkick
+//= require chart.js/dist/Chart.js
+//= require charts.js

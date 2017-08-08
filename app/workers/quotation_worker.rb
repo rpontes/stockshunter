@@ -13,7 +13,7 @@ class QuotationWorker
     quotations.each do |key, value|
       currency = Currency.find_by(acronym: key)
 
-      next if currency.quotations.by_day(@today).present?
+      next if currency.quotations.by_hour(@today).present?
 
       currency.quotations.create(buy: value[:buy].to_f,
                                  sell: value[:sell].to_f,

@@ -37,11 +37,6 @@ gem 'figaro'
 #
 # Simple, efficient background processing for Ruby.
 gem 'sidekiq'
-
-# Create beautiful JavaScript charts with one line of Ruby. No more fighting
-# with charting libraries!
-gem 'chartkick'
-
 # Whenever is a Ruby gem that provides a clear syntax for writing and
 # deploying cron jobs.
 gem 'whenever', require: false
