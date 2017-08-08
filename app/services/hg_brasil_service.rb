@@ -11,9 +11,11 @@ class HgBrasilService
   def quotations
     response = self.class.get('/quotations', OPTIONS)
 
-    return parse_quotations(response) if response.success?
-
-    raise response.response
+    if response.success?
+      parse_quotations(response)
+    else
+      []
+    end
   end
 
   private
