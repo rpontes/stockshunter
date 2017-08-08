@@ -16,3 +16,21 @@
 //= require bootstrap/dist/js/bootstrap
 //= require chart.js/dist/Chart.js
 //= require charts.js
+
+document.addEventListener("turbolinks:load", function() {
+  function startTimer() {
+      var now = new Date();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      setTimeout('refresh()', (((30 - (minutes % 30)
+        - ((seconds>0)?1:0)) * 60)
+        + (60 - seconds)) * 1000);
+  }
+
+  function refresh() {
+    window.location.href = '/';
+  }
+
+  startTimer();
+
+});

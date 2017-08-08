@@ -5,12 +5,12 @@ class Quotation < ApplicationRecord
   belongs_to :currency
 
   scope :by_day, lambda { |day|
-    where(quotation_at: day.beginning_of_day...day.end_of_day)
+    where(quotations: { quotation_at: day.beginning_of_day...day.end_of_day })
       .order(:quotation_at)
   }
 
   scope :by_hour, lambda { |day|
-    where(quotation_at: day.beginning_of_hour...day.end_of_hour)
+    where(quotations: { quotation_at: day.beginning_of_hour...day.end_of_hour })
       .order(:quotation_at)
   }
 

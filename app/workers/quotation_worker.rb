@@ -7,6 +7,7 @@ class QuotationWorker
     @today = Time.zone.now
   end
 
+  # Will execute in background to get quotations and save on database.
   def perform
     quotations = @service.quotations
 

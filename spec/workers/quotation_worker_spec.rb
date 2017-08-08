@@ -10,6 +10,13 @@ describe QuotationWorker, type: :worker do
   end
 
   it 'not create when exists quotations hour' do
-    
+    described_class.new.perform
+
+    currency = Currency.first
+    count_quotations = currency.quotations.count
+
+    described_class.new.perform
+
+    expect(currency.quotations.count).to eq(count_quotations)
   end
 end

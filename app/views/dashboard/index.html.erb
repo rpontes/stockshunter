@@ -1,3 +1,34 @@
 <div class="js-dashboard-charts">
   <canvas id="js-quotations-chart" width="400" height="200"></canvas>
+
+  <% @currencies.each do |currency| %>
+    <h4><%= currency[:name] %> (<%= currency[:acronym] %>)</h4>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Compra</th>
+          <th>Venda</th>
+          <th>Variação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% currency[:quotations].each do |quotation| %>
+          <tr>
+            <td class="col-md-2">
+              <%= I18n.l(quotation[:quotation_at], format: :short) %>
+            </td>
+            <td class="col-md-4">
+              <%= number_to_currency(quotation[:buy]) %>
+            </td>
+            <td class="col-md-4">
+              <%= number_to_currency(quotation[:sell]) %>
+            </td>
+            <td class="col-md-2"><%= quotation[:variation] %> %</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
